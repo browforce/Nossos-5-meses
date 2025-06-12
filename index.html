@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>5 Meses de Amor 💖</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #1a1a1a, #2a2a2a);
+      color: #fff;
+      text-align: center;
+      background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+      overflow-x: hidden;
+    }
+    h1 {
+      font-size: 3em;
+      color: #ffaad4;
+      margin-top: 30px;
+    }
+    h2 {
+      font-size: 1.8em;
+      color: #ffcce6;
+      margin-bottom: 20px;
+    }
+    .heart {
+      font-size: 2em;
+      animation: pulse 1s infinite;
+      color: #ff69b4;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+    .message {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.2em;
+      line-height: 1.8;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      border: 1px solid #ffaad4;
+      margin-bottom: 30px;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      padding: 10px 0 40px;
+    }
+    .gallery img {
+      width: 250px;
+      border-radius: 10px;
+      border: 3px solid #ffaad4;
+      box-shadow: 0 0 10px #ffaad4;
+    }
+    #countdown {
+      font-size: 1.8em;
+      margin: 20px auto;
+      color: #ffddee;
+    }
+    canvas#fireworks {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+    }
+    footer {
+      color: #ccc;
+      font-size: 0.9em;
+      padding: 10px;
+      margin-bottom: 40px;
+    }
+  </style>
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/01/audio_8be5c1250e.mp3?filename=romantic-piano-melody-21976.mp3" type="audio/mpeg">
+  </audio>
+
+  <canvas id="fireworks"></canvas>
+
+  <h1>✨ 5 Meses com Você ✨</h1>
+  <div class="heart">💗</div>
+  <h2>Uma pequena homenagem ao nosso amor...</h2>
+
+  <div id="countdown">Contando os segundos para 19 de junho... 💫</div>
+
+  <div class="message">
+    <p>Amor, nesses cinco meses ao seu lado, vivi os dias mais lindos da minha vida. Cada sorriso seu, cada abraço apertado, cada carinho silencioso... tudo em você me encanta e me completa.</p>
+    <p>Você me ensinou o que é amor de verdade, o que é cuidar, respeitar e sonhar junto. Mesmo nos dias difíceis, seu amor me acolheu como um lar seguro.</p>
+    <p>Eu amo cada detalhe seu. Amo o som da sua voz, o jeito como me olha, e até as manias que fazem de você única. Não vejo a hora de viver muitos outros momentos incríveis ao seu lado.</p>
+    <p>Obrigado por existir, por me escolher e por fazer parte da minha vida. Que venham mais 5 meses, 5 anos, uma vida inteira... 💞</p>
+    <p>Com todo meu amor, João ❤️</p>
+  </div>
+
+  <div class="gallery">
+    <img src="1.jpeg" alt="Foto 1">
+    <img src="2.jpeg" alt="Foto 2">
+    <img src="3.jpeg" alt="Foto 3">
+    <img src="4.jpeg" alt="Foto 4">
+    <img src="5.jpeg" alt="Foto 5">
+    <img src="6.jpeg" alt="Foto 6">
+  </div>
+
+  <footer>
+    &copy; 2025 João & Amor | Feito com muito carinho 💘
+  </footer>
+
+  <script>
+    const countdownEl = document.getElementById('countdown');
+    const eventDate = new Date("June 19, 2025 00:00:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = eventDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdownEl.innerHTML = `Faltam ${days} dias, ${hours} horas, ${minutes} minutos e ${seconds} segundos para nosso dia especial 💖`;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/gh/crashmax-dev/fireworks-js/dist/fireworks.js"></script>
+  <script>
+    const container = document.getElementById('fireworks');
+    const fireworks = new Fireworks.default(container, {
+      autoresize: true,
+      opacity: 0.2,
+      acceleration: 1.05,
+      friction: 0.95,
+      gravity: 1.5,
+      particles: 100,
+      trace: 3,
+      explosion: 5,
+    });
+    fireworks.start();
+  </script>
+</body>
+</html>
